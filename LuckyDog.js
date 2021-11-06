@@ -29,34 +29,39 @@ export function randomNum(minNum, maxNum) {
 	}
 }
 
-function getAnswer(count = 5, /*no = [],*/ wrongCount = 0, tiId = "", timeSum = { value: 0 }) {
-	const _questions = [
-		{
-			"tiId": "7701cee40fed4c6ab161a3bf4485a97e",
-			"timu": "设区的市人民政府有权发布该行政区域内地震短期预报、临震预报。",
-			"answer": "B",
-			"fake": "C"
-		}, {
-			"tiId": "569852b6ebf3434a95e27d9040d087d7",
-			"timu": "根据《建设工程抗震管理条例》，建设工程抗震应当坚持的原则有（  ）。",
-			"answer": "ABC",
-			"fake": "AC"
-		}, {
-			"tiId": "d229308b40014e49b9d7a74042094cf8",
-			"timu": "有关建设工程的强制性标准，应当与抗震设防要求相衔接。（  ）",
-			"answer": "A",
-			"fake": "C"
-		}, {
-			"tiId": "4b3876028c9b44f9ac5a5abf45f818f1",
-			"timu": "根据《工会法》，企业、事业单位、机关有会员（  ）人以上的，应当建立基层工会委员会。",
-			"answer": "B",
-			"fake": "C"
-		}, {
-			"tiId": "973dfb3266a6492c8b372f26ac77902e",
-			"timu": "根据《劳动合同法》，用人单位自用工之日起满（  ）不与劳动者订立书面劳动合同的，视为用人单位与劳动者已订立无固定期限劳动合同。",
-			"answer": "A",
-			"fake": "C"
-		}, {
+function getAnswer(qDbName = "", options = { count: 5, no: [], wrongCount: 0, tiId: "" }, timeSum = { value: 0 }) {
+	if (qDbName == "") {
+		return [];
+	}
+	const _qDb = {
+		"exercise": [
+			{
+				"tiId": "7701cee40fed4c6ab161a3bf4485a97e",
+				"timu": "设区的市人民政府有权发布该行政区域内地震短期预报、临震预报。",
+				"answer": "B",
+				"fake": "C"
+			}, {
+				"tiId": "569852b6ebf3434a95e27d9040d087d7",
+				"timu": "根据《建设工程抗震管理条例》，建设工程抗震应当坚持的原则有（  ）。",
+				"answer": "ABC",
+				"fake": "AC"
+			}, {
+				"tiId": "d229308b40014e49b9d7a74042094cf8",
+				"timu": "有关建设工程的强制性标准，应当与抗震设防要求相衔接。（  ）",
+				"answer": "A",
+				"fake": "C"
+			}, {
+				"tiId": "4b3876028c9b44f9ac5a5abf45f818f1",
+				"timu": "根据《工会法》，企业、事业单位、机关有会员（  ）人以上的，应当建立基层工会委员会。",
+				"answer": "B",
+				"fake": "C"
+			}, {
+				"tiId": "973dfb3266a6492c8b372f26ac77902e",
+				"timu": "根据《劳动合同法》，用人单位自用工之日起满（  ）不与劳动者订立书面劳动合同的，视为用人单位与劳动者已订立无固定期限劳动合同。",
+				"answer": "A",
+				"fake": "C"
+			}],
+		"exam": [{
 			"tiId": "76a50b360a90451088ab982c77053644",
 			"answer": "B",
 			"fake": "A"
@@ -77,8 +82,14 @@ function getAnswer(count = 5, /*no = [],*/ wrongCount = 0, tiId = "", timeSum = 
 			"answer": "B",
 			"fake": "A"
 		}
-	];
+		]
+	};
+	if (Object.keys(_qDb).indexOf(qDbName) < 0) {
+		return [];
+	}
+	const _questions = _qDb[qDbName];
 	const _questionsSelected = [];
+	let { count, no, wrongCount, tiId } = options;
 	let _q = null;
 	let _time = 0;
 	if (tiId != "") {
@@ -95,7 +106,7 @@ function getAnswer(count = 5, /*no = [],*/ wrongCount = 0, tiId = "", timeSum = 
 	// 	//return _questionsSelected.map(e => `${e.tiId}#${e.answer}#${randomNum(9000, 36000)}##`).join("");
 	// 	return _questionsSelected;
 	// }
-	var no = [];
+	no = [];
 	let random = 0;
 	for (; no.length < count;) {
 		random = randomNum(0, _questions.length - 1);
@@ -200,7 +211,10 @@ async function doExercise(times = 5) {
 		"dtId": "emd2021_jlldt"
 	}
 	let json = {
-		"answer": getAnswer(5, randomNum(0, 2), "", answerTimeSum).join(""),
+		"answer": getAnswer("exercise", {
+			count: 5,
+			wrongCount: randomNum(0, 2),
+		}, answerTimeSum).join(""),
 		"time": randomNum(120000, 300000)
 	};
 	let param = { method: "POST", headers };
@@ -234,14 +248,23 @@ async function doExam(times = 3) {
 		"dtId": "emd2021_szydt"
 	}
 	let json = {
-		"answer": getAnswer(5, randomNum(0, 2), "", answerTimeSum).join(""),
+		"answer": getAnswer("exam", {
+			count: 5,
+			wrongCount: randomNum(0, 2)
+		}, answerTimeSum).join(""),
 		"time": randomNum(120000, 300000)
 	};
 	let param = { method: "POST", headers };
 	param.headers.Referer = "http://www.gsosc.cn/yj/answershizhan?projectId=emd2021";
 	for (let i = 1; i <= times; i++) {
 		json.time = randomNum(120000, 300000);
-		json.answer = getAnswer(5, randomNum(0, 2)).join("");
+		json.answer = getAnswer("exam", {
+			count: 5,
+			wrongCount: randomNum(0, 2)
+		}, answerTimeSum).join("");
+		if (json.time < answerTimeSum.value) {
+			json.time = answerTimeSum.value - randomNum(100, 300);
+		}
 		body['json'] = JSON.stringify(json, undefined, '');
 		param["body"] = JSON.stringify(body);
 		try {
