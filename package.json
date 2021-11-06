@@ -1,0 +1,16 @@
+{
+  "name": "yjpf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "ciaoly",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "dependencies": {
+    "http-mitm-proxy": "^0.9.0",
+    "node-fetch": "^3.0.0"
+  }
+}
