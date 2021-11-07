@@ -16,13 +16,22 @@ async function fuckYou(token = "") {
 	} catch (e) {
 		if (e.code == -9999) {
 			console.log("Token无效, 点一点网页, 程序会自动地再抓一个");
+			fuckedFlag = false;
+		} else {
+			console.log("出错了");
+			console.error(e);
 		}
-		fuckedFlag = false;
 	}
 }
 
 proxy.onError(function (ctx, err) {
-	console.error('proxy error:', err);
+	if ('ERR_SSL_SSLV3_ALERT_CERTIFICATE_UNKNOWN' == err.code) {
+		console.info("遇到一个证书错误, 不过不用管, 因为答题平台是HTTP的, 和这个错误无关");
+		return;
+	}
+	if (!fuckYou) {
+		console.info("代理出错了, 不用管它, 只要获取到了Token就行:", err);
+	}
 });
 
 proxy.onRequest(function (ctx, callback) {

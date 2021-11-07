@@ -92,7 +92,7 @@ function getAnswer(qDbName = "", options = { count: 5, no: [], wrongCount: 0, ti
 	let { count, no, wrongCount, tiId } = options;
 	let _q = null;
 	let _time = 0;
-	if (tiId != "") {
+	if (tiId) {
 		_q = _questions.filter(ele => ele.tiId == tiId)[0];
 		_time = randomNum(9000, 36000);
 		timeSum.value += _time;
