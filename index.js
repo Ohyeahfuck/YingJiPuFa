@@ -1,6 +1,7 @@
 import Proxy from 'http-mitm-proxy';
 import LuckyDog, { randomNum, sleep } from './LuckyDog.js';
 const proxy = Proxy();
+const port = 8081;
 
 let fuckedFlag = false;
 async function fuckYou(token = "") {
@@ -46,5 +47,5 @@ proxy.onRequest(function (ctx, callback) {
 	return callback();
 });
 
-proxy.listen({ port: 8081 });
-console.log("在电脑或手机上设置代理, 端口是8081, 代理类型是HTTP ....");
+proxy.listen({ port });
+console.log(`在电脑或手机上设置代理, 端口是${port}, 代理类型是HTTP ....`);
