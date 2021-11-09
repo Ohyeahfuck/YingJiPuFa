@@ -35,6 +35,95 @@ function getAnswer(qDbName = "", options = { count: 5, no: [], wrongCount: 0, ti
 	}
 	const _qDb = {
 		"exercise": [
+			 {
+			  "tiId": "e7f13972847447f9811c94524b1d44ae",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "9df9cf9f4a114b869485442f83a16542",
+			  "answer": "CD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "7b413e1085594a5a826395447b5f1511",
+			  "answer": "C",
+			  "fake": "B"
+			 }, {
+			  "tiId": "6f704464296c4ff98ee610ea17276cdf",
+			  "answer": "C",
+			  "fake": "B"
+			 }, {
+			  "tiId": "25dbd1bcfa62464684ec24cddb7d7cfd",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "8aef558b82644b729b0f4088dff1a3dd",
+			  "answer": "ABD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "07878dcfb7f84558b4410f0477840263",
+			  "answer": "BD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "facb239429824bc9bc3eb46ae26355cb",
+			  "answer": "B",
+			  "fake": "B"
+			 }, {
+			  "tiId": "6f8b747db30b4540a14deb4fd5f26911",
+			  "answer": "ABCD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "6aebd8e35aa645fe934437f4a0ecca2d",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "cdb82ec513c94394b990c9336a6d5a94",
+			  "answer": "C",
+			  "fake": "B"
+			 }, {
+			  "tiId": "65b0506b7cc44d528604aee502427497",
+			  "answer": "B",
+			  "fake": "B"
+			 }, {
+			  "tiId": "8cca7efc20a34b9783569ee0587257bd",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "2fca0cc633f445f7a219ca19b8a36fb6",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "d53d8044641949d99734f229914683bb",
+			  "answer": "ABD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "0ce38223a1904a79a39063ec1d85ee0b",
+			  "answer": "ABCD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "8c0fd009ea194beca41295d3876e0688",
+			  "answer": "B",
+			  "fake": "B"
+			 }, {
+			  "tiId": "352c89ce970d4eb98957ea98a693995f",
+			  "answer": "ABCD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "38caeae84f224d66ab8aa5d670959a61",
+			  "answer": "A",
+			  "fake": "B"
+			 }, {
+			  "tiId": "9364c411420a467bac40e1d59e0a883a",
+			  "answer": "B",
+			  "fake": "B"
+			 }, {
+			  "tiId": "309a1863d05b4eae9c5f4af8a0d731f0",
+			  "answer": "ABCD",
+			  "fake": "B"
+			 }, {
+			  "tiId": "1ee6593676094759b6a504b18f18643f",
+			  "answer": "A",
+			  "fake": "B"
+			 },
 			{
 				"tiId": "7701cee40fed4c6ab161a3bf4485a97e",
 				"timu": "设区的市人民政府有权发布该行政区域内地震短期预报、临震预报。",
@@ -81,7 +170,59 @@ function getAnswer(qDbName = "", options = { count: 5, no: [], wrongCount: 0, ti
 			"tiId": "99f6e1f2fc40416aacd4fa998088854a",
 			"answer": "B",
 			"fake": "A"
-		}
+		},{
+			"tiId": "125523743f144994a10ce99b4c4baa67",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "b9a3c9e87632467e9f93c8fee089628d",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "cf49d108d73847478265821ccdc26e1e",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "531ec1b1306b4953bf1310848b3fd58d",
+			"answer": "C",
+			"fake": "B"
+		   }, {
+			"tiId": "f47221ac2267407593ceff55c74fc13d",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "5b1e24f05f56443db29776ccf3257d0c",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "c81ec8af4bd84890a3bdae7ba08bf0c0",
+			"answer": "A",
+			"fake": "B"
+		   }, {
+			"tiId": "32e673fa8f8d40fbb4c1985543836c39",
+			"answer": "ABCD",
+			"fake": "B"
+		   }, {
+			"tiId": "3cc766c3da3b48659ad4caef17a8bb5f",
+			"answer": "B",
+			"fake": "B"
+		   }, {
+			"tiId": "a07e5c5de15d4fadb79e45f22ad3a493",
+			"answer": "B",
+			"fake": "A"
+		   }, {
+			"tiId": "fe854452d9a9429b8694f3b266165cee",
+			"answer": "ABCD",
+			"fake": "B"
+		   }, {
+			"tiId": "24c6a715f79348a68835c631f49de840",
+			"answer": "B",
+			"fake": "B"
+		   }, {
+			"tiId": "c0a7429b741143aaa3e5c8d65a8e8e93",
+			"answer": "C",
+			"fake": "B"
+		   }
 		]
 	};
 	if (Object.keys(_qDb).indexOf(qDbName) < 0) {
